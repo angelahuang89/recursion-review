@@ -4,12 +4,12 @@
 // but you're not, so you'll write it from scratch:
 var parseJSON = function(json) {
   //number
-  if (!isNaN(Number(json))) {
+  if ( !isNaN(Number(json)) ) {
     return Number(json);
   }
   //string
   var arr = json.split('');
-  if ( arr[0] === '\"') {
+  if ( arr[0] === '\"' ) {
     return arr.slice( 1, arr.length - 1 ).join('');
   }
   //boolean
@@ -24,7 +24,7 @@ var parseJSON = function(json) {
     return null;
   }
   //array
-  if ( arr[0] === '[') {
+  if ( arr[0] === '[' ) {
     var arrSpl = arr.slice( 1, arr.length - 1 ).join('');
     var result = arrSpl.split(',');
     for (var i = 0; i < result.length; i++) {   
@@ -33,4 +33,7 @@ var parseJSON = function(json) {
     return result;
   }   
   //object
+  if ( arr[0] === '{') {
+    var objSpl = arr.slice( 1, arr.length - 1 ).join('');
+  }
 };
